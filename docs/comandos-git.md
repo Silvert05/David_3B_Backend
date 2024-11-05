@@ -15,8 +15,14 @@ https://github.com/Silvert05/David_3B_Backend.git
 ````
 git remote -v
 ````
+-----------------------------------------------------
+
 ````
 git add .
 git commit -m "Nombre_Referencia"
+git put -f origin master
+````
+````
+- Para forzar 
 git push -f origin master
 ````
