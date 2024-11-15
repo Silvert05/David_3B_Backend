@@ -19,4 +19,4 @@ export default new DataSource ({
     database: process.env.DATABASE,
     entities:['src/**/*.entity.ts'],
     migrations:['src/database/migrations/*.ts']
-});
+}); 
