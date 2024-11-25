@@ -12,5 +12,5 @@ export class Categoria {
     detalle:string;
 
     @OneToOne(()=>Producto,(prod)=>prod.categoria)
-    producto:Producto
+    producto:Producto[]
 }
