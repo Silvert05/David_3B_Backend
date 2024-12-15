@@ -5,8 +5,11 @@ GET  http://localhost:3000/producto
 POST http://localhost:3000/producto
 Content-Content-Type: aplication/json
 {
-    "nombre":"impresora laser",
-    "precio":"500.95",
-    "stock":12,
+    "nombre":"Teclado gammer",
+    "precio":"160",
+    "stock":13,
     "categoriaId":1
 }
+
+### Busqueda  por  nombre
+GET  http://localhost:3000/producto/back?page=1&q=mm&sort=asc
