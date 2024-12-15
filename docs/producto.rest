@@ -3,13 +3,14 @@ GET  http://localhost:3000/producto
 
 ### Crear producto
 POST http://localhost:3000/producto
-Content-Content-Type: aplication/json
+Content-Type:  application/json
+
 {
-    "nombre":"Teclado gammer",
-    "precio":"160",
+    "nombre":"Mause Gammer  ",
+    "precio":"120.00",
     "stock":13,
     "categoriaId":1
+    
 }
-
-### Busqueda  por  nombre
-GET  http://localhost:3000/producto/back?page=1&q=mm&sort=asc
+### Busqueda por nombre
+GET http://localhost:3000/producto/back?page=1&q=mm&sort=asc

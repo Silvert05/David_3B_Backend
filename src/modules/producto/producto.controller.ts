@@ -21,33 +21,33 @@ export class ProductoController {
   }
 
   @Get('back')
-  async backend(@Req()req: Request){
+  async backend(@Req() req: Request) {
     const builder = await this.productoService.queryBuilder('productos');
-    if (req.query.q){
-      builder.where("productos.nombre LIKE: q" ,{q:`%${req.query.q}%`})
+  
+    if (req.query.q) {
+      // Corregir la sintaxis del LIKE
+      builder.where('productos.nombre LIKE :q', { q: `%${req.query.q}%` });
     }
-    const sort:any =req.query.sort;
-    if(sort){
+  
+    const sort: any = req.query.sort;
+    if (sort) {
       builder.orderBy('productos.precio', sort.toUpperCase());
     }
-
-    const page:number=parseInt(req.query.page as any) || 1
-
-    const limit=10;
-
-    builder.offset((page-1)*limit).limit(limit)
-    const total=await builder.getCount();
-
-    return{
-      data:await builder.getMany(),
-      total:total,
-      page,
-      last_page:Math.ceil(total/limit)
-    }
-
-    //return await// builder.getMany()
-  }
   
+    const page: number = parseInt(req.query.page as any) || 1;
+    const limit = 10;
+  
+    builder.offset((page - 1) * limit).limit(limit);
+  
+    const total = await builder.getCount();
+  
+    return {
+      data: await builder.getMany(),
+      total: total,
+      page,
+      last_page: Math.ceil(total / limit),
+    };
+  }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateProductoDto: UpdateProductoDto) {
